@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://btn4yvqol6wj2"]
+
+[ext_resource type="Script" path="res://Scripts/EnemyType.gd" id="1_owfq1"]
+[ext_resource type="Texture2D" uid="uid://bncf3o0cegrkm" path="res://Assets/skull.png" id="2_x37k4"]
+
+[resource]
+script = ExtResource("1_owfq1")
+title = "skeleton"
+texture = ExtResource("2_x37k4")
+health = 100.0
+damage = 1.0

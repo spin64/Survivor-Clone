@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://3l2mpknndfem"]
+
+[ext_resource type="Script" path="res://Scripts/spawner.gd" id="1_i6xul"]
+[ext_resource type="PackedScene" uid="uid://pxr1h4p54ylf" path="res://Scenes/Enemy/enemy.tscn" id="2_b58xl"]
+[ext_resource type="Script" path="res://Scripts/EnemyType.gd" id="3_np6db"]
+[ext_resource type="Resource" uid="uid://btn4yvqol6wj2" path="res://Resources/Enemy/skeleton.tres" id="4_ve5po"]
+
+[node name="Spawner" type="Node2D"]
+script = ExtResource("1_i6xul")
+enemy = ExtResource("2_b58xl")
+enemy_types = Array[ExtResource("3_np6db")]([ExtResource("4_ve5po")])
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Counter" type="HBoxContainer" parent="UI"]
+offset_left = 582.0
+offset_top = 11.0
+offset_right = 624.0
+offset_bottom = 51.0
+
+[node name="Minute" type="Label" parent="UI/Counter"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="Label2" type="Label" parent="UI/Counter"]
+layout_mode = 2
+text = ":"
+
+[node name="Second" type="Label" parent="UI/Counter"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00"
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Pattern" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="Elite" type="Timer" parent="."]
+wait_time = 9.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Pattern" to="." method="_on_pattern_timeout"]
+[connection signal="timeout" from="Elite" to="." method="_on_elite_timeout"]
