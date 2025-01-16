@@ -1,13 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://doo7qltly32l0"]
+[gd_scene load_steps=15 format=3 uid="uid://doo7qltly32l0"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_ohh52"]
+[ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_ohh52"]
 [ext_resource type="PackedScene" uid="uid://ykh0e3bmfwtv" path="res://Scenes/Player/slot.tscn" id="2_3601b"]
-[ext_resource type="Texture2D" uid="uid://f4fls5rdae4h" path="res://Assets/rogues.png" id="2_cxl0u"]
+[ext_resource type="Texture2D" uid="uid://f4fls5rdae4h" path="res://Assets/Sprites/rogues.png" id="2_cxl0u"]
+[ext_resource type="Texture2D" uid="uid://boaxr1smh4tf4" path="res://Assets/pixel.png" id="2_yyscu"]
 [ext_resource type="Resource" uid="uid://bee2dnxh1t6xj" path="res://Resources/Weapon/Wand.tres" id="3_qoma0"]
-[ext_resource type="Resource" uid="uid://c7wwjwg8fx140" path="res://Resources/Weapon/laser.tres" id="4_nm1iy"]
+[ext_resource type="Resource" uid="uid://qs5tpi4233i7" path="res://Resources/Weapon/Melee.tres" id="5_ob8jc"]
+[ext_resource type="Script" path="res://Scripts/Player/options.gd" id="5_pq1bg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_88cqd"]
-size = Vector2(56, 60)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vrujh"]
+bg_color = Color(0.231373, 0.113725, 0.0980392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kr8dd"]
+bg_color = Color(0.1056, 0.16256, 0.96, 1)
+border_color = Color(0.231373, 0.113725, 0.0980392, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wr2uw"]
 bg_color = Color(0.231373, 0.113725, 0.0980392, 1)
@@ -20,38 +26,100 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.231373, 0.113725, 0.0980392, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88cqd"]
+size = Vector2(56, 60)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kts5u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pqbe1"]
+radius = 100.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ohh52")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 132.0
-offset_bottom = 44.0
+[node name="Panel" type="NinePatchRect" parent="UI"]
+self_modulate = Color(0.6, 0.2926, 0.252, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.5
+offset_top = -107.0
+offset_right = 208.5
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_yyscu")
 
-[node name="Slot" parent="UI/HBoxContainer" instance=ExtResource("2_3601b")]
+[node name="Label" type="Label" parent="UI/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -33.5
+offset_right = 33.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Level Up"
+
+[node name="Weapons" type="HBoxContainer" parent="UI"]
+offset_left = 8.0
+offset_top = 30.0
+offset_right = 136.0
+offset_bottom = 70.0
+
+[node name="Slot" parent="UI/Weapons" instance=ExtResource("2_3601b")]
 layout_mode = 2
 weapon = ExtResource("3_qoma0")
 
-[node name="Slot2" parent="UI/HBoxContainer" instance=ExtResource("2_3601b")]
+[node name="Slot2" parent="UI/Weapons" instance=ExtResource("2_3601b")]
 layout_mode = 2
-weapon = ExtResource("4_nm1iy")
+weapon = ExtResource("5_ob8jc")
 
-[node name="Slot3" parent="UI/HBoxContainer" instance=ExtResource("2_3601b")]
+[node name="Slot3" parent="UI/Weapons" instance=ExtResource("2_3601b")]
 layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
-texture = ExtResource("2_cxl0u")
-region_enabled = true
-region_rect = Rect2(32, 128, 32, 32)
+[node name="XP" type="ProgressBar" parent="UI"]
+unique_name_in_owner = true
+offset_right = 642.0
+offset_bottom = 23.0
+theme_override_styles/background = SubResource("StyleBoxFlat_vrujh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_kr8dd")
+max_value = 10.0
+show_percentage = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_88cqd")
+[node name="Level" type="Label" parent="UI/XP"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 591.0
+offset_top = 1.0
+offset_right = 640.0
+offset_bottom = 24.0
+text = "Lv 100"
+horizontal_alignment = 1
+
+[node name="Options" type="VBoxContainer" parent="UI" node_paths=PackedStringArray("weapons", "panel")]
+unique_name_in_owner = true
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_pq1bg")
+weapons = NodePath("../Weapons")
+panel = NodePath("../Panel")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
@@ -64,6 +132,15 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_255xs")
 value = 100.0
 show_percentage = false
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_cxl0u")
+region_enabled = true
+region_rect = Rect2(32, 128, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_88cqd")
+
 [node name="SelfDamage" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
@@ -75,7 +152,13 @@ shape = SubResource("RectangleShape2D_kts5u")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Magnet" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Magnet"]
+shape = SubResource("CircleShape2D_pqbe1")
 
 [connection signal="body_entered" from="SelfDamage" to="." method="_on_self_damage_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Magnet" to="." method="_on_magnet_area_entered"]

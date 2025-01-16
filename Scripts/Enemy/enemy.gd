@@ -7,10 +7,13 @@ var damage : float
 var knockback : Vector2
 var dist_from_player : float
 
+var drop = preload("res://Scenes/pickups.tscn")
+
 var health : float:
 	set(value):
 		health = value
 		if health <= 0:
+			drop_item()
 			queue_free()
 
 var elite : bool = false:
@@ -43,6 +46,12 @@ func check_separation(_delta):
 
 func knockback_update(delta):
 	velocity = (player_reference.position - position).normalized() * speed
+	
+	if velocity.x > 0:
+		$Sprite2D.flip_h = true
+	elif velocity.x < 0:
+		$Sprite2D.flip_h = false
+	
 	knockback = knockback.move_toward(Vector2.ZERO, 1)
 	velocity += knockback
 	var collider = move_and_collide(velocity * delta)
@@ -56,3 +65,18 @@ func take_damage(amount):
 	tween.bind_node(self)
 	
 	health -= amount
+
+func drop_item():
+	if type.drops.size() == 0:
+		return
+	
+	var item = type.drops.pick_random()
+	var item_to_drop = drop.instantiate()
+	
+	item_to_drop.type = item
+	item_to_drop.position = position
+	item_to_drop.player_reference = player_reference
+	
+	print(item_to_drop.player_reference)
+	
+	get_tree().current_scene.call_deferred("add_child", item_to_drop)

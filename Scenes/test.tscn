@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://3l2mpknndfem" path="res://Scenes/Enemy/spawner.tscn" id="1_caii7"]
 [ext_resource type="PackedScene" uid="uid://doo7qltly32l0" path="res://Scenes/Player/player.tscn" id="1_jdk2p"]
-[ext_resource type="Texture2D" uid="uid://df75dhgk5ecqr" path="res://Assets/tiles.png" id="1_u8kcg"]
+[ext_resource type="Texture2D" uid="uid://df75dhgk5ecqr" path="res://Assets/Sprites/tiles.png" id="1_u8kcg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6e3e3"]
 texture = ExtResource("1_u8kcg")

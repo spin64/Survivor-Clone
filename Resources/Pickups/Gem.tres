@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Gem" load_steps=3 format=3 uid="uid://k60evfva8m40"]
+
+[ext_resource type="Script" path="res://Scripts/Items/gems.gd" id="2_faelf"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dtumm"]
+size = Vector2(20, 20)
+
+[resource]
+script = ExtResource("2_faelf")
+XP = 10.0
+title = "Blue gem"
+icon = SubResource("PlaceholderTexture2D_dtumm")
+description = ""

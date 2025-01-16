@@ -31,7 +31,6 @@ func spawn(pos : Vector2, elite : bool = false):
 	if not can_spawn and not elite:
 		return
 	
-	
 	var enemy_instance = enemy.instantiate()
 	enemy_instance.type = enemy_types[min(minute, enemy_types.size()-1)]
 	

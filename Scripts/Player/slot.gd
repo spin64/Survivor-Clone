@@ -5,6 +5,10 @@ extends PanelContainer
 		weapon = value
 		$TextureRect.texture = value.texture
 		$Cooldown.wait_time = value.cooldown
+		
+func _physics_process(delta: float) -> void:
+	if weapon != null and weapon.has_method("update"):
+		weapon.update(delta)
 
 func _on_cooldown_timeout() -> void:
 	if weapon:

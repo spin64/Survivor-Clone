@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="Melee" load_steps=10 format=3 uid="uid://qs5tpi4233i7"]
+
+[ext_resource type="PackedScene" uid="uid://bahmtpwp8uboa" path="res://Scenes/Weapon/projectile.tscn" id="1_wbv1u"]
+[ext_resource type="Script" path="res://Scripts/Items/melee.gd" id="2_6gty7"]
+[ext_resource type="Texture2D" uid="uid://ca71dx8y7u00f" path="res://Assets/Icons/release_v1.2-single_12.png" id="3_agmre"]
+[ext_resource type="Script" path="res://Scripts/Items/Upgrade.gd" id="4_b55ox"]
+
+[sub_resource type="Resource" id="Resource_hdknq"]
+script = ExtResource("4_b55ox")
+damage = 1.0
+cooldown = 0.0
+description = "+1 Damage"
+
+[sub_resource type="Resource" id="Resource_n1arx"]
+script = ExtResource("4_b55ox")
+damage = 2.0
+cooldown = 0.0
+description = "+2 Damage
+"
+
+[sub_resource type="Resource" id="Resource_n0dxa"]
+script = ExtResource("4_b55ox")
+damage = 0.0
+cooldown = -0.5
+description = "-0.5 Cooldown"
+
+[sub_resource type="Resource" id="Resource_cvr5u"]
+script = ExtResource("4_b55ox")
+damage = 0.0
+cooldown = -1.0
+description = "-1 Cooldown"
+
+[sub_resource type="Resource" id="Resource_sul3u"]
+script = ExtResource("4_b55ox")
+damage = 10.0
+cooldown = -1.0
+description = "+10 Damage"
+
+[resource]
+script = ExtResource("2_6gty7")
+title = "melee"
+texture = ExtResource("3_agmre")
+damage = 100.0
+cooldown = 2.0
+speed = 0.0
+projectile_node = ExtResource("1_wbv1u")
+upgrades = Array[ExtResource("4_b55ox")]([SubResource("Resource_hdknq"), SubResource("Resource_n1arx"), SubResource("Resource_n0dxa"), SubResource("Resource_cvr5u"), SubResource("Resource_sul3u")])
