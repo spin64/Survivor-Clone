@@ -2,7 +2,7 @@ extends VBoxContainer
  
 @export var weapons : HBoxContainer
 @export var passive_items : HBoxContainer
-var OptionSlot = preload("res://scenes/option_slot.tscn")
+var OptionSlot = preload("res://scenes/Player/option_slot.tscn")
  
 @export var panel : NinePatchRect
  
@@ -25,7 +25,7 @@ func get_available_resource_in(items)-> Array[Item]:
 func add_option(item) -> int:
 	if item.is_upgradable():
 		var option_slot = OptionSlot.instantiate()
-		print(item.title)
+		#print(item.title)
 		option_slot.item = item
 		add_child(option_slot)
 		return 1

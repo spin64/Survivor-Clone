@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=4 uid="uid://biwo2o2iwiqak"]
 
-[ext_resource type="PackedScene" uid="uid://3l2mpknndfem" path="res://Scenes/Enemy/spawner.tscn" id="1_caii7"]
-[ext_resource type="PackedScene" uid="uid://doo7qltly32l0" path="res://Scenes/Player/player.tscn" id="1_jdk2p"]
-[ext_resource type="Texture2D" uid="uid://df75dhgk5ecqr" path="res://Assets/Sprites/tiles.png" id="1_u8kcg"]
+[ext_resource type="Texture2D" uid="uid://df75dhgk5ecqr" path="res://Assets/Sprites/tiles.png" id="1_3n5wf"]
+[ext_resource type="PackedScene" uid="uid://3l2mpknndfem" path="res://Scenes/Enemy/spawner.tscn" id="2_g3bnn"]
+[ext_resource type="PackedScene" uid="uid://doo7qltly32l0" path="res://Scenes/Player/player.tscn" id="3_iyctv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6e3e3"]
-texture = ExtResource("1_u8kcg")
+texture = ExtResource("1_3n5wf")
 0:26/0 = 0
 1:26/0 = 0
 2:26/0 = 0
@@ -22,7 +22,7 @@ texture = ExtResource("1_u8kcg")
 sources/0 = SubResource("TileSetAtlasSource_6e3e3")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gqowc"]
-texture = ExtResource("1_u8kcg")
+texture = ExtResource("1_3n5wf")
 0:38/0 = 0
 0:39/0 = 0
 1:39/0 = 0
@@ -76,8 +76,8 @@ tile_set = SubResource("TileSet_vwmng")
 tile_map_data = PackedByteArray("AAADAAMAAAAAACQAAAADAAQAAAAAACUAAAAEAAMAAAABACQAAAAEAAQAAAABACUAAAAMAAgAAAAAACQAAAAMAAkAAAAAACUAAAANAAgAAAABACQAAAANAAkAAAABACUAAAAgAAQAAAAAACQAAAAgAAUAAAAAACUAAAAhAAQAAAABACQAAAAhAAUAAAABACUAAAAiAA8AAAAAACQAAAAiABAAAAAAACUAAAAjAA8AAAABACQAAAAjABAAAAABACUAAAADAA0AAAAAACYAAAADAA4AAAAAACcAAAAEAA0AAAABACYAAAAEAA4AAAABACcAAAAWAAMAAAAAACYAAAAWAAQAAAAAACcAAAAXAAMAAAABACYAAAAXAAQAAAABACcAAAAMAAIAAAAAACYAAAAMAAMAAAAAACcAAAANAAIAAAABACYAAAANAAMAAAABACcAAAAcAAoAAAAAACYAAAAcAAsAAAAAACcAAAAdAAoAAAABACYAAAAdAAsAAAABACcAAAAmAAkAAAAAACYAAAAmAAoAAAAAACcAAAAnAAkAAAABACYAAAAnAAoAAAABACcAAAAUABEAAAAAACYAAAAUABIAAAAAACcAAAAVABEAAAABACYAAAAVABIAAAABACcAAAAJABAAAAAAACYAAAAJABEAAAAAACcAAAAKABAAAAABACYAAAAKABEAAAABACcAAAAdABEAAAAKACYAAAAdABIAAAAKACcAAAAeABEAAAALACYAAAAeABIAAAALACcAAAAFAAYAAAAKACYAAAAFAAcAAAAKACcAAAAGAAYAAAALACYAAAAGAAcAAAALACcAAAA=")
 tile_set = SubResource("TileSet_16bdp")
 
-[node name="Spawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_caii7")]
+[node name="Spawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_g3bnn")]
 player = NodePath("../Player")
 
-[node name="Player" parent="." instance=ExtResource("1_jdk2p")]
+[node name="Player" parent="." instance=ExtResource("3_iyctv")]
 position = Vector2(320, 170)

@@ -7,7 +7,7 @@ var damage : float
 var knockback : Vector2
 var dist_from_player : float
 
-var drop = preload("res://Scenes/pickups.tscn")
+var drop = preload("res://Scenes/Player/pickups.tscn")
 
 var health : float:
 	set(value):
@@ -77,6 +77,6 @@ func drop_item():
 	item_to_drop.position = position
 	item_to_drop.player_reference = player_reference
 	
-	print(item_to_drop.player_reference)
+	#print(item_to_drop.player_reference)
 	
 	get_tree().current_scene.call_deferred("add_child", item_to_drop)

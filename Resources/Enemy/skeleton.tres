@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://btn4yvqol6wj2"]
 
-[ext_resource type="Script" path="res://Scripts/Items/PickupResource.gd" id="1_dlftv"]
+[ext_resource type="Script" path="res://Scripts/Items/Pickups/PickupResource.gd" id="1_dlftv"]
 [ext_resource type="Script" path="res://Scripts/Enemy/EnemyType.gd" id="1_owfq1"]
 [ext_resource type="Resource" uid="uid://k60evfva8m40" path="res://Resources/Pickups/Gem.tres" id="2_ux5as"]
 [ext_resource type="Texture2D" uid="uid://bncf3o0cegrkm" path="res://Assets/Sprites/skull.png" id="2_x37k4"]

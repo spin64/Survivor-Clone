@@ -1,9 +1,8 @@
 [gd_resource type="Resource" script_class="PassiveItem" load_steps=7 format=3 uid="uid://dsn6lt0xhrjnc"]
 
-[ext_resource type="Script" path="res://PassiveItem.gd" id="1_h3bnq"]
-[ext_resource type="Script" path="res://Scripts/Player/stats.gd" id="2_lth0v"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7crfu"]
+[ext_resource type="Script" path="res://Scripts/Items/SlottedItems/Passives/PassiveItem.gd" id="1_axxq1"]
+[ext_resource type="Texture2D" uid="uid://d2g6s1wiudou6" path="res://Assets/Icons/sprite.png" id="2_1lp1p"]
+[ext_resource type="Script" path="res://Scripts/Player/Stats.gd" id="2_lth0v"]
 
 [sub_resource type="Resource" id="Resource_82xb5"]
 script = ExtResource("2_lth0v")
@@ -42,7 +41,7 @@ magnet = 40.0
 growth = 0.0
 
 [resource]
-script = ExtResource("1_h3bnq")
+script = ExtResource("1_axxq1")
 upgrades = Array[ExtResource("2_lth0v")]([SubResource("Resource_82xb5"), SubResource("Resource_16dnh"), SubResource("Resource_4tikq")])
 title = "Magnet"
-texture = SubResource("PlaceholderTexture2D_7crfu")
+texture = ExtResource("2_1lp1p")
