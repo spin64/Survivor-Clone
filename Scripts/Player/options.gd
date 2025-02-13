@@ -53,3 +53,16 @@ func show_option():
 	show()
 	panel.show()
 	get_tree().paused = true
+	
+func get_avalible_upgrades() -> Array[Item]:
+	var upgrades : Array[Item] = []
+	
+	for weapon in get_available_resource_in(weapons):
+		if weapon.is_upgradable():
+			upgrades.append(weapon)
+	
+	for passive_item in get_available_resource_in(passive_items):
+		if passive_item.is_upgradable():
+			upgrades.append(passive_item)
+	
+	return upgrades

@@ -13,10 +13,14 @@ enemy_types = Array[ExtResource("3_np6db")]([ExtResource("4_ve5po")])
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Counter" type="HBoxContainer" parent="UI"]
-offset_left = 593.0
-offset_top = 26.0
-offset_right = 635.0
-offset_bottom = 66.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_top = 37.0
+offset_right = -6.0
+offset_bottom = 77.0
+grow_horizontal = 0
 
 [node name="Minute" type="Label" parent="UI/Counter"]
 unique_name_in_owner = true
@@ -37,11 +41,11 @@ wait_time = 2.0
 autostart = true
 
 [node name="Pattern" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 20.0
 autostart = true
 
 [node name="Elite" type="Timer" parent="."]
-wait_time = 120.0
+wait_time = 30.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

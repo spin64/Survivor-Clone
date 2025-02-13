@@ -19,10 +19,12 @@ func _on_body_entered(_body):
 	queue_free()
 
 func _physics_process(delta):
-	print(can_follow)
+	#print(can_follow)
 	if player_reference and can_follow:
 		direction = (player_reference.position - position).normalized()
 		position += direction * speed * delta
 
 func follow(_target : CharacterBody2D):
+	if type is Chest:
+		return
 	can_follow = true

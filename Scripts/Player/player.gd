@@ -87,3 +87,6 @@ func check_XP():
 func _on_magnet_area_entered(area: Area2D) -> void:
 	if area.has_method("follow"):
 		area.follow(self)
+		
+func open_chest():
+	$UI/Chest.open()
