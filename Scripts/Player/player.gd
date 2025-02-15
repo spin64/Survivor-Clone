@@ -41,6 +41,11 @@ var XP : int = 0:
 		XP = value
 		%XP.value = value
 		
+var gold : int = 0:
+	set(value):
+		gold = value
+		%Gold.text = "Gold : " + str(value)
+		
 var total_XP : int = 0
 
 func _ready():
@@ -87,6 +92,9 @@ func check_XP():
 func _on_magnet_area_entered(area: Area2D) -> void:
 	if area.has_method("follow"):
 		area.follow(self)
+		
+func gain_gold(amount):
+	gold += amount
 		
 func open_chest():
 	$UI/Chest.open()

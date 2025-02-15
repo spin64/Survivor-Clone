@@ -52,7 +52,10 @@ func upgrade_item(start, end):
 		var upgrades = options.get_avalible_upgrades()
 		
 		if upgrades.size() == 0:
-			return
+			var gold : Gold = load("res://Resources/Pickups/Gold.tres")
+			gold.player_reference = owner
+			rewards.get_child(index).texture = gold.texture
+			gold.upgrade_item()
 		else:
 			var selected_upgrade = upgrades.pick_random()
 			rewards.get_child(index).texture = selected_upgrade.texture

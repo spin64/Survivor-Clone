@@ -80,6 +80,19 @@ script = ExtResource("1_ohh52")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
+[node name="Gold" type="Label" parent="UI"]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -146.0
+offset_top = 30.0
+offset_right = -6.0
+offset_bottom = 53.0
+grow_horizontal = 0
+text = "Gold : 0"
+horizontal_alignment = 2
+
 [node name="Panel" type="NinePatchRect" parent="UI"]
 visible = false
 self_modulate = Color(0.6, 0.2926, 0.252, 1)
@@ -158,13 +171,14 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -49.0
+offset_left = -56.0
 offset_top = 11.0
+offset_right = -7.0
 offset_bottom = 34.0
 grow_horizontal = 0
 text = "Lv 10
 "
-horizontal_alignment = 1
+horizontal_alignment = 2
 
 [node name="Options" type="VBoxContainer" parent="UI" node_paths=PackedStringArray("weapons", "passive_items", "panel")]
 unique_name_in_owner = true
