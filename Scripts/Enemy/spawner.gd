@@ -17,7 +17,7 @@ var second : int:
 	set (value):
 		second = value
 		if second >= 60:
-			second -= 10
+			second -= 60
 			minute +=1
 		%Second.text = str(second).lpad(2,'0')
 		

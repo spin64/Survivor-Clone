@@ -1,0 +1,72 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=9 format=3 uid="uid://c5xc87ehcx20q"]
+
+[ext_resource type="Script" path="res://Scripts/Menus/Skill.gd" id="1_3bdb6"]
+[ext_resource type="Script" path="res://Scripts/Player/Stats.gd" id="2_hd1no"]
+[ext_resource type="Texture2D" uid="uid://ct2qwqd3wdi5h" path="res://Assets/Icons/Boots.png" id="3_xb1s3"]
+
+[sub_resource type="Resource" id="Resource_i3wt5"]
+script = ExtResource("2_hd1no")
+description = ""
+max_health = 0.0
+recovery = 0.0
+armor = 0.0
+movement_speed = 1.0
+might = 0.0
+area = 0.0
+magnet = 0.0
+growth = 0.0
+
+[sub_resource type="Resource" id="Resource_iqouu"]
+script = ExtResource("2_hd1no")
+description = ""
+max_health = 0.0
+recovery = 0.0
+armor = 0.0
+movement_speed = 1.0
+might = 0.0
+area = 0.0
+magnet = 0.0
+growth = 0.0
+
+[sub_resource type="Resource" id="Resource_66m3p"]
+script = ExtResource("2_hd1no")
+description = ""
+max_health = 0.0
+recovery = 0.0
+armor = 0.0
+movement_speed = 1.0
+might = 0.0
+area = 0.0
+magnet = 0.0
+growth = 0.0
+
+[sub_resource type="Resource" id="Resource_hpefh"]
+script = ExtResource("2_hd1no")
+description = ""
+max_health = 0.0
+recovery = 0.0
+armor = 0.0
+movement_speed = 1.0
+might = 0.0
+area = 0.0
+magnet = 0.0
+growth = 0.0
+
+[sub_resource type="Resource" id="Resource_30nw3"]
+script = ExtResource("2_hd1no")
+description = ""
+max_health = 0.0
+recovery = 0.0
+armor = 0.0
+movement_speed = 1.0
+might = 0.0
+area = 0.0
+magnet = 0.0
+growth = 0.0
+
+[resource]
+script = ExtResource("1_3bdb6")
+name = "Boots"
+texture = ExtResource("3_xb1s3")
+cost = 10
+stats = Array[ExtResource("2_hd1no")]([SubResource("Resource_i3wt5"), SubResource("Resource_iqouu"), SubResource("Resource_66m3p"), SubResource("Resource_hpefh"), SubResource("Resource_30nw3")])

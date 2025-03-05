@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://doo7qltly32l0"]
+[gd_scene load_steps=21 format=3 uid="uid://doo7qltly32l0"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_ohh52"]
 [ext_resource type="PackedScene" uid="uid://ykh0e3bmfwtv" path="res://Scenes/Player/slot.tscn" id="2_3601b"]
@@ -7,9 +7,6 @@
 [ext_resource type="Resource" uid="uid://bee2dnxh1t6xj" path="res://Resources/Weapon/Wand.tres" id="3_qoma0"]
 [ext_resource type="Script" path="res://Scripts/Player/Options.gd" id="5_pq1bg"]
 [ext_resource type="PackedScene" uid="uid://bldipeingm14g" path="res://Scenes/Player/passive_slot.tscn" id="5_rde5r"]
-[ext_resource type="Resource" uid="uid://qs5tpi4233i7" path="res://Resources/Weapon/Melee.tres" id="5_tm5la"]
-[ext_resource type="Resource" uid="uid://dsn6lt0xhrjnc" path="res://Resources/Passives/Magnet.tres" id="6_shb62"]
-[ext_resource type="Resource" uid="uid://dbbbnm137ntno" path="res://Resources/Passives/Armor.tres" id="8_rjvd0"]
 [ext_resource type="Script" path="res://Scripts/Items/Pickups/Chest.gd" id="10_4206s"]
 [ext_resource type="Texture2D" uid="uid://df75dhgk5ecqr" path="res://Assets/Sprites/tiles.png" id="11_kvrqa"]
 
@@ -132,7 +129,6 @@ item = ExtResource("3_qoma0")
 
 [node name="Slot2" parent="UI/Weapons" instance=ExtResource("2_3601b")]
 layout_mode = 2
-item = ExtResource("5_tm5la")
 
 [node name="Slot3" parent="UI/Weapons" instance=ExtResource("2_3601b")]
 layout_mode = 2
@@ -145,11 +141,9 @@ offset_bottom = 100.0
 
 [node name="PassiveSlot" parent="UI/PassiveItems" instance=ExtResource("5_rde5r")]
 layout_mode = 2
-item = ExtResource("6_shb62")
 
 [node name="PassiveSlot2" parent="UI/PassiveItems" instance=ExtResource("5_rde5r")]
 layout_mode = 2
-item = ExtResource("8_rjvd0")
 
 [node name="PassiveSlot3" parent="UI/PassiveItems" instance=ExtResource("5_rde5r")]
 layout_mode = 2

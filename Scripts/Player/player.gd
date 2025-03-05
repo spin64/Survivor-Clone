@@ -44,12 +44,16 @@ var XP : int = 0:
 var gold : int = 0:
 	set(value):
 		gold = value
+		SaveData.gold += value
+		SaveData.set_and_save()
 		%Gold.text = "Gold : " + str(value)
 		
 var total_XP : int = 0
 
 func _ready():
 	level = 1
+	Persistance.gain_bonus_stats(self)
+	print(armor)
 
 func _physics_process(delta: float) -> void:
 	if is_instance_valid(nearest_enemy):

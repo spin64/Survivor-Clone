@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxjotnpnookl1"]
+
+[ext_resource type="Script" path="res://Scripts/Menus/MainMenuGold.gd" id="1_86wlq"]
+[ext_resource type="PackedScene" uid="uid://ctpbuiuwxei2f" path="res://Scenes/Menu/upgrade.tscn" id="2_5xf05"]
+[ext_resource type="Script" path="res://Scripts/Menus/Start.gd" id="3_dwu0y"]
+[ext_resource type="Resource" uid="uid://c5xc87ehcx20q" path="res://Resources/Upgrades/Boots.tres" id="3_ltkt5"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Gold" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+horizontal_alignment = 2
+script = ExtResource("1_86wlq")
+
+[node name="Upgrades" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Armor" parent="Upgrades" instance=ExtResource("2_5xf05")]
+layout_mode = 1
+
+[node name="Boots" parent="Upgrades" instance=ExtResource("2_5xf05")]
+layout_mode = 1
+offset_left = 47.0
+offset_top = -37.0
+offset_right = 122.0
+offset_bottom = 38.0
+skill = ExtResource("3_ltkt5")
+
+[node name="start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -23.0
+offset_top = -31.0
+offset_right = 23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Start"
+script = ExtResource("3_dwu0y")
+
+[connection signal="pressed" from="start" to="start" method="_on_pressed"]
