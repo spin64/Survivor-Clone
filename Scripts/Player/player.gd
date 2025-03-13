@@ -31,7 +31,7 @@ var level : int = 1:
 		%Level.text = "Lv " + str(value)
 		
 		if level != 1:
-			%Options.show_option()
+			%Options.show_options()
 		
 		if level >= 2:
 			%XP.max_value *= 1.2
@@ -49,11 +49,11 @@ var gold : int = 0:
 		%Gold.text = "Gold : " + str(value)
 		
 var total_XP : int = 0
+var luck : float = 1.0
 
 func _ready():
 	level = 1
 	Persistance.gain_bonus_stats(self)
-	print(armor)
 
 func _physics_process(delta: float) -> void:
 	if is_instance_valid(nearest_enemy):

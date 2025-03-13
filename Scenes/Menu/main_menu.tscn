@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxjotnpnookl1"]
+[gd_scene load_steps=8 format=3 uid="uid://dxjotnpnookl1"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/MainMenuGold.gd" id="1_86wlq"]
+[ext_resource type="Script" path="res://Scenes/Menu/MainMenu.gd" id="1_wnqvw"]
 [ext_resource type="PackedScene" uid="uid://ctpbuiuwxei2f" path="res://Scenes/Menu/upgrade.tscn" id="2_5xf05"]
 [ext_resource type="Script" path="res://Scripts/Menus/Start.gd" id="3_dwu0y"]
 [ext_resource type="Resource" uid="uid://c5xc87ehcx20q" path="res://Resources/Upgrades/Boots.tres" id="3_ltkt5"]
+[ext_resource type="Resource" uid="uid://vdh547ao3qe" path="res://Resources/Upgrades/Might.tres" id="4_pwisq"]
+
+[sub_resource type="Theme" id="Theme_p2qd5"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -12,19 +16,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Gold" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
-grow_horizontal = 0
-horizontal_alignment = 2
-script = ExtResource("1_86wlq")
+theme = SubResource("Theme_p2qd5")
+script = ExtResource("1_wnqvw")
 
 [node name="Upgrades" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,7 +39,23 @@ offset_right = 122.0
 offset_bottom = 38.0
 skill = ExtResource("3_ltkt5")
 
-[node name="start" type="Button" parent="."]
+[node name="Might" parent="Upgrades" instance=ExtResource("2_5xf05")]
+layout_mode = 1
+offset_left = -120.0
+offset_top = -37.0
+offset_right = -45.0
+offset_bottom = 38.0
+skill = ExtResource("4_pwisq")
+
+[node name="Menu" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="Menu"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -51,11 +63,47 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -23.0
-offset_top = -31.0
+offset_top = -84.0
 offset_right = 23.0
+offset_bottom = -53.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_font_sizes/font_size = 36
 text = "Start"
 script = ExtResource("3_dwu0y")
 
-[connection signal="pressed" from="start" to="start" method="_on_pressed"]
+[node name="Upgrade" type="Button" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = 17.0
+offset_right = 41.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Upgrades"
+
+[node name="Gold" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+horizontal_alignment = 2
+script = ExtResource("1_86wlq")
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 1
+offset_right = 45.0
+offset_bottom = 31.0
+text = "Back"
+
+[connection signal="pressed" from="Menu/Start" to="Menu/Start" method="_on_pressed"]
+[connection signal="pressed" from="Menu/Upgrade" to="." method="_on_upgrade_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

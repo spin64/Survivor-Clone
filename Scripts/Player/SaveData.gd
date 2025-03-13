@@ -24,5 +24,5 @@ func load_data():
 	if config.load(PATH) != OK:
 		set_and_save()
 		
-	upgrades = config.get_value("Player", "upgrades")		
+	upgrades = config.get_value("Player", "upgrades")
 	gold = config.get_value("Player", "gold")

@@ -47,7 +47,6 @@ func set_reward():
 		print("legendary")
 		
 func upgrade_item(start, end):
-	print("here")
 	for index in range(start, end):
 		var upgrades = options.get_avalible_upgrades()
 		
