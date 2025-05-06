@@ -29,7 +29,6 @@ Check out the current state of the game:
 - [ ] Unique character abilities  
 - [ ] Boss fights and elite enemies  
 - [ ] Unlockable stages and meta-progression  
-- [ ] Controller and mobile support  
 - [ ] Polish visuals, animations, and sound design  
 
 ---
